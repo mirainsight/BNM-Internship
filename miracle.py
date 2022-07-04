@@ -8,7 +8,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # read shapefile 
-gdf = gpd.read_file('C:/Users/hp/Downloads/mys_admb_unhcr_20210211_shp/mys_admbnda_adm2_unhcr_20210211.shp')
+gdf = gpd.read_file('District Boundaries - BNM Internship.shp')
 
 
 # plot with colors, and right dimensions
@@ -21,7 +21,7 @@ newgdf = gdf[["ADM2_EN", "ADM1_EN", "Shape_Leng", "Shape_Area", "ADM2_PCODE", "A
 newgdf.columns=["District", "State", "Shape_Leng", "Shape_Area", "District Postcode", "State Postcode", "date", "validOn","geometry"]
 newgdf.plot(column='District', cmap=None, legend=None, figsize=(20, 20))
 
-poi = gpd.read_file(r'C:\Users\hp\Downloads\hotosm_mys_points_of_interest_points_shp/hotosm_mys_points_of_interest_points.shp')
+poi = gpd.read_file('POIs - BNM Internship.shp')
 simple_poi = poi[["osm_id", "man_made", "geometry"]].copy()
 
 @st.cache(suppress_st_warning=True)
