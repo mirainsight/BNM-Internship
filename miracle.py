@@ -8,7 +8,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # read shapefile 
-gdf = gpd.read_file(r'C:\Users\hp\Downloads\mys_admb_unhcr_20210211_shp\mys_admbnda_adm2_unhcr_20210211.shp')
+gdf = gpd.read_file('C:/Users/hp/Downloads/mys_admb_unhcr_20210211_shp/mys_admbnda_adm2_unhcr_20210211.shp')
 
 
 # plot with colors, and right dimensions
