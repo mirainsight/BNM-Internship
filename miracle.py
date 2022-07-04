@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 # read shapefile 
 gdf = gpd.read_file('District/mys_admbnda_adm2_unhcr_20210211.shp')
-
+poi = gpd.read_file('POI/hotosm_mys_points_of_interest_points.shp')
 
 # plot with colors, and right dimensions
 gdf.plot(column='ADM2_EN', cmap=None, legend=None, figsize=(20, 20))
@@ -22,14 +22,13 @@ newgdf = gdf[["ADM2_EN", "ADM1_EN", "Shape_Leng", "Shape_Area", "ADM2_PCODE", "A
 newgdf.columns=["District", "State", "Shape_Leng", "Shape_Area", "District Postcode", "State Postcode", "date", "validOn","geometry"]
 newgdf.plot(column='District', cmap=None, legend=None, figsize=(20, 20))
 
-poi = gpd.read_file('POI/hotosm_mys_points_of_interest_points.shp')
+
 simple_poi = poi[["osm_id", "man_made", "geometry"]].copy()
 
 @st.cache(suppress_st_warning=True)
 def fit_district_coord_to_state():
-    st.write("Cache miss: fit_district_coord_to_state() ran") 
-    poi_temp = gpd.read_file(r'C:\Users\hp\Downloads\hotosm_mys_points_of_interest_points_shp/hotosm_mys_points_of_interest_points.shp')
-    gdf_temp = gpd.read_file(r'C:\Users\hp\Downloads\mys_admb_unhcr_20210211_shp\mys_admbnda_adm2_unhcr_20210211.shp')
+    poi_temp = gpd.read_file('POI/hotosm_mys_points_of_interest_points.shp')
+    gdf_temp = gpd.read_file('District/mys_admbnda_adm2_unhcr_20210211.shp')
     test_state = []
     test_dist = []
     k = 1
